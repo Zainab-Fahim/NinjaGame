@@ -315,6 +315,18 @@ function draw()
     if(isPlummeting)
     {
         gameChar_y += 7;
+		if (gameChar_y>height){
+			isPlummeting=false
+			//decrementing lives here because it's easier than reformatting lol
+			lives--;
+
+			//restart if player has lives remaining
+			if(lives > 0)
+			{
+				deathSound.play();
+				startGame();
+			}
+		}
     }
 	
 	//Game character update with scroll
